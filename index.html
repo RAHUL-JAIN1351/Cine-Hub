@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Navbar Section Start -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>🎬 Cine Hub</h1>
+            </div>
+            <div class="nav-button">
+                <button class="nav-btn btn-favourite">Favourites</button>
+                <button class="nav-btn btn-cart">Cart</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Section End -->
+    
+
+    <!-- Carousel Start -->
+    <section class="Carousel-section" id="home">
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="changeslide(-1)">&#10094;</button>
+
+            <div class="carousel-container" id="carousel-container">
+                <!-- Slides Loaded here -->
+            </div>
+
+            <button class="carousel-btn next" onclick="changeslide(+1)">&#10095;</button>
+        </div>
+    </section>
+    <!-- Carousel End -->
+
+    
+
+    <!-- Movies Section Start -->
+    
+    <section class="movie-section" id="movies">
+        <div class="container">
+            <h2>Popoular Movies</h2>
+            <div id="movies-container" class="movie-grid">
+                <!-- Movies Will Be Loaded Here.. -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section End -->
+
+</body>
+<script src="index.js"></script>
+</html>
