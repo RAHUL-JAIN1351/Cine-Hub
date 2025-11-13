@@ -1,120 +1,172 @@
+// Cine Hub — Movies + Favourites
+async function apiGet(endpoint) {
+  const res = await fetch(`http://localhost:3000${endpoint}`);
+  if (!res.ok) throw new Error(`Failed GET ${endpoint}`);
+  return res.json();
+}
+async function apiPost(endpoint, data) {
+  const res = await fetch(`http://localhost:3000${endpoint}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+async function apiDelete(endpoint) {
+  await fetch(`http://localhost:3000${endpoint}`, { method: "DELETE" });
+}
 
-const carouselImages = [
-    "https://lh6.googleusercontent.com/proxy/MX3D4QatCD48FMfsynnWIAs4g1JT8iTM4K-05xetNMuZ3h5JmVuiRcnRo2BN86tEPuD9KFOtAPpwsZPQKXjwG19oAwaJqxTKvzChZV_V_7ostQ",
+function createMovieCard(movie, favIds) {
+  const isFav = favIds.includes(movie.id);
+  const div = document.createElement("div");
+  div.className = "movie-card";
+  div.innerHTML = `
+    <div class="movie-poster">
+      <img src="${movie.poster}" alt="${movie.title}">
+      <button class="fav-btn ${isFav ? "active" : ""}" title="${isFav ? "Remove from" : "Add to"} favourites">
+        ${isFav ? "❤️" : "🤍"}
+      </button>
+    </div>
+    <div class="movie-info">
+      <h3>${movie.title}</h3>
+      <div class="meta">${movie.category} • ⭐ ${movie.rating} • ${movie.year}</div>
+    </div>
+  `;
+  observer.observe(div);
 
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9BcgXCBK15cXryD_jOe-XtQ86nZC0m2EfQ&s",
+  div.querySelector(".fav-btn").addEventListener("click", async (e) => {
+    e.stopPropagation();
+    if (div.querySelector(".fav-btn").classList.contains("active")) {
+      await removeFavourite(movie.id);
+      e.target.classList.remove("active");
+      e.target.textContent = "🤍";
+    } else {
+      await addFavourite(movie);
+      e.target.classList.add("active");
+      e.target.textContent = "❤️";
+    }
+  });
 
+  return div;
+}
+
+async function addFavourite(movie) {
+  const favs = await apiGet("/favourites");
+  if (!favs.find((f) => f.id === movie.id)) await apiPost("/favourites", movie);
+}
+
+async function removeFavourite(id) {
+  const favs = await apiGet("/favourites");
+  const target = favs.find((f) => f.id === id);
+  if (target) await apiDelete(`/favourites/${target.id}`);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const moviesContainer = document.getElementById("movies-container");
+  const emptyState = document.getElementById("empty-state");
+
+  const searchInput = document.getElementById("search-input");
+  const searchClear = document.getElementById("search-clear");
+
+  searchClear.addEventListener("click", () => {
+    searchInput.value = "";
+    applyFilters(); // re-render all movies
+  });
+
+
+  const filterCategory = document.getElementById("filter-category");
+  const sortBy = document.getElementById("sort-by");
+  let allMovies = [], favourites = [];
+
+  window.addEventListener("scroll", () => {
+    document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 10);
+  });
+
+  // Carousel setup
+  const carouselContainer = document.getElementById("carousel-container");
+  const carouselImages = [
     "https://webneel.com/wnet/file/images/11-16/8-xmen-movie-poster-design.jpg",
-
     "https://i0.wp.com/teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg?ssl=1",
-
     "https://collider.com/wp-content/uploads/inception_movie_poster_banner_04.jpg"
-]
+  ];
 
-let currentSlide = 0;
-let previousSlide = 0
+  carouselImages.forEach((url, i) => {
+    const slide = document.createElement("div");
+    slide.className = "carousel-slide";
+    if (i === 0) slide.classList.add("active");
+    slide.innerHTML = `<img src="${url}" alt="Slide ${i + 1}">`;
+    carouselContainer.appendChild(slide);
+  });
 
-let allMovies = []
-let moviesContainer = document.getElementById('movies-container');
+  let current = 0;
+
+  const slides = Array.from(carouselContainer.querySelectorAll(".carousel-slide"));
+  function changeSlide(next = 1) {
+    slides[current].classList.remove("active");
+    current = (current + next + slides.length) % slides.length;
+    slides[current].classList.add("active");
+  }
 
 
-const carouselContainer = document.getElementById("carousel-container");
+  document.getElementById("prev").onclick = () => changeSlide(-1);
+  document.getElementById("next").onclick = () => changeSlide(1);
+  setInterval(() => changeSlide(1), 5000);
 
-function initCarousel(){
-    carouselContainer.innerHTML = "";
-    carouselImages.forEach((imageurl,index) =>{
-        const slide = document.createElement('div');    
-        slide.className = "carousel-slide";
+  try {
+    allMovies = await apiGet("/movies");
+    favourites = await apiGet("/favourites");
+    renderMovies(allMovies);
+    populateFilter(allMovies);
+  } catch (err) {
+    console.error(err);
+    emptyState.classList.remove("hidden");
+    emptyState.textContent = "Failed to load movies ❌";
+  }
 
-        if (index === 0){
-            slide.classList.add('active');
-        }
-        const img = document.createElement('img');
-        img.classList.add('carousel-image');
-        img.src = imageurl; 
-        img.alt = `Slide ${index+1}`;
-        slide.appendChild(img);
-        carouselContainer.appendChild(slide);
-    });
-}
-
-function updateCarousel(direction){
-    const slides = document.querySelectorAll('.carousel-slide');
-
-    slides.forEach((slide) =>{
-        slide.classList.remove('active','to-left','to-right');
-    });
-
-    const prev = slides[previousSlide];
-    const curr = slides[currentSlide];
-
-    if (direction === -1){
-        prev.classList.add('to-left');
+  function renderMovies(list) {
+    moviesContainer.innerHTML = "";
+    if (!list.length) {
+      emptyState.classList.remove("hidden");
+      return;
     }
-    else{
-        prev.classList.add('to-right');
-    }
+    emptyState.classList.add("hidden");
+    const favIds = favourites.map((f) => f.id);
+    list.forEach((m) => moviesContainer.appendChild(createMovieCard(m, favIds)));
+  }
 
-    curr.classList.add('active');
-}
+  function populateFilter(list) {
+    const cats = [...new Set(list.map((m) => m.category))];
+    filterCategory.innerHTML =
+      `<option value="">All genres</option>` +
+      cats.map((c) => `<option value="${c}">${c}</option>`).join("");
+  }
 
-function changeslide(direction){
-    previousSlide = currentSlide;
-    currentSlide = Math.abs(currentSlide + direction + carouselImages.length) % carouselImages.length;
-    updateCarousel(direction);
-}
+  function applyFilters() {
+    let filtered = [...allMovies];
+    const q = (searchInput.value || "").toLowerCase();
+    const cat = filterCategory.value;
+    const sort = sortBy.value;
 
-async function loadMovies(){
-    try{
-        let response = await fetch('http://localhost:3000/movies');
-        if(!response){
-            console.error("Failed To Load Movies");
-        }
-        allMovies = await response.json();
-        DisplayMovies();
-    }
-    catch(err){
-        console.error(err);
-    }
-}
+    if (q) filtered = filtered.filter((m) => m.title.toLowerCase().includes(q) || m.category.toLowerCase().includes(q));
+    if (cat) filtered = filtered.filter((m) => m.category === cat);
+    if (sort === "rating-desc") filtered.sort((a, b) => b.rating - a.rating);
+    if (sort === "rating-asc") filtered.sort((a, b) => a.rating - b.rating);
+    if (sort === "year-desc") filtered.sort((a, b) => b.year - a.year);
+    if (sort === "year-asc") filtered.sort((a, b) => a.year - b.year);
 
-function autoNext(){
-    currentSlide = (currentSlide + 1) % carouselImages.length;
-    changeslide(+1);
-}
+    renderMovies(filtered);
+  }
 
-function DisplayMovies(){
-    if(!moviesContainer){
-        console.error('Movie Container Not There');
-        return
-    }
-    if(!allMovies || allMovies.length === 0){
-        moviesContainer.innerHTML = '<p style="color:White;text-align:center;font-weight:bold;font-size:30px;"> No Movies Available! </p>';
-        return
-    }
-
-    allMovies.forEach((movie) =>{
-        const card = document.createElement('div');
-        card.className = 'movie-card';
-        card.innerHTML = `
-            <div class="movie-poster">
-                <img src=${movie.poster} alt=${movie.title} class="movie-poster-img" />
-            </div>
-            <div class="movie-info">
-                <div class="movie-title">${movie.title}</div>
-                <div class="movie-year">${movie.year}</div>
-                <div class="movie-category">${movie.category}</div>
-                <div class="movie-rating">${movie.rating} ⭐</div>
-            </div>
-            <div class="movie-buttons">
-                <button class="btn btn-favourite">❤️ Favourite</button>
-                <button class="btn btn-cart">🛒 Cart</button>
-            </div>
-        `;
-        moviesContainer.appendChild(card);
-    });
-}
-
-setInterval(autoNext,5000);
-initCarousel();
-loadMovies();
+  searchInput.addEventListener("input", applyFilters);
+  filterCategory.addEventListener("change", applyFilters);
+  sortBy.addEventListener("change", applyFilters);
+});

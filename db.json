@@ -1,144 +1,272 @@
 {
   "movies": [
-  {
-    "id": 1,
-    "title": "Mission Impossible - The Final Reckoning",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Action",
-    "rating": 9,
-    "year": 2025
-  },
-  {
-    "id": 2,
-    "title": "Echoes of Tomorrow",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/b/b4/Clean_%282021_film%29.jpg",
-    "category": "Sci-Fi",
-    "rating": 8.5,
-    "year": 2024
-  },
-  {
-    "id": 3,
-    "title": "Love in Paris",
-    "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
-    "category": "Romance",
-    "rating": 7.9,
-    "year": 2023
-  },
-  {
-    "id": 4,
-    "title": "The Last Kingdom",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Historical",
-    "rating": 8.7,
-    "year": 2022
-  },
-  {
-    "id": 5,
-    "title": "Cyber Pulse",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Sci-Fi",
-    "rating": 9.1,
-    "year": 2025
-  },
-  {
-    "id": 6,
-    "title": "Jungle Quest",
-    "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
-    "category": "Adventure",
-    "rating": 7.5,
-    "year": 2021
-  },
-  {
-    "id": 7,
-    "title": "Frozen Shadows",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Mystery",
-    "rating": 8.0,
-    "year": 2023
-  },
-  {
-    "id": 8,
-    "title": "Rise of Legends",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Fantasy",
-    "rating": 8.9,
-    "year": 2024
-  },
-  {
-    "id": 9,
-    "title": "Urban Chaos",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Action",
-    "rating": 7.8,
-    "year": 2022
-  },
-  {
-    "id": 10,
-    "title": "Neon Dreams",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Drama",
-    "rating": 8.3,
-    "year": 2021
-  },
-  {
-    "id": 11,
-    "title": "Beyond the Horizon",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Adventure",
-    "rating": 8.6,
-    "year": 2025
-  },
-  {
-    "id": 12,
-    "title": "The Forgotten Truth",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Mystery",
-    "rating": 7.7,
-    "year": 2020
-  },
-  {
-    "id": 13,
-    "title": "Quantum Rift",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Sci-Fi",
-    "rating": 9.2,
-    "year": 2025
-  },
-  {
-    "id": 14,
-    "title": "Whispers in the Dark",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Horror",
-    "rating": 7.4,
-    "year": 2023
-  },
-  {
-    "id": 15,
-    "title": "The Art of War",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Action",
-    "rating": 8.1,
-    "year": 2022
-  }
-],
-  "cart":[
     {
-    "id": 13,
-    "title": "Quantum Rift",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Sci-Fi",
-    "rating": 9.2,
-    "year": 2025
-  }
+      "id": "1",
+      "title": "Mission Impossible - The Final Reckoning",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 9,
+      "year": 2025
+    },
+    {
+      "id": "2",
+      "title": "Echoes of Tomorrow",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/b/b4/Clean_%282021_film%29.jpg",
+      "category": "Sci-Fi",
+      "rating": 8.5,
+      "year": 2024
+    },
+    {
+      "id": "3",
+      "title": "Love in Paris",
+      "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
+      "category": "Romance",
+      "rating": 7.9,
+      "year": 2023
+    },
+    {
+      "id": "4",
+      "title": "The Last Kingdom",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Historical",
+      "rating": 8.7,
+      "year": 2022
+    },
+    {
+      "id": "5",
+      "title": "Cyber Pulse",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Sci-Fi",
+      "rating": 9.1,
+      "year": 2025
+    },
+    {
+      "id": "6",
+      "title": "Jungle Quest",
+      "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
+      "category": "Adventure",
+      "rating": 7.5,
+      "year": 2021
+    },
+    {
+      "id": "7",
+      "title": "Frozen Shadows",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Mystery",
+      "rating": 8,
+      "year": 2023
+    },
+    {
+      "id": "8",
+      "title": "Rise of Legends",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Fantasy",
+      "rating": 8.9,
+      "year": 2024
+    },
+    {
+      "id": "9",
+      "title": "Urban Chaos",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 7.8,
+      "year": 2022
+    },
+    {
+      "id": "10",
+      "title": "Neon Dreams",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Drama",
+      "rating": 8.3,
+      "year": 2021
+    },
+    {
+      "id": "11",
+      "title": "Beyond the Horizon",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Adventure",
+      "rating": 8.6,
+      "year": 2025
+    },
+    {
+      "id": "12",
+      "title": "The Forgotten Truth",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Mystery",
+      "rating": 7.7,
+      "year": 2020
+    },
+    {
+      "id": "13",
+      "title": "Quantum Rift",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Sci-Fi",
+      "rating": 9.2,
+      "year": 2025
+    },
+    {
+      "id": "14",
+      "title": "Whispers in the Dark",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Horror",
+      "rating": 7.4,
+      "year": 2023
+    },
+    {
+      "id": "15",
+      "title": "The Art of War",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 8.1,
+      "year": 2022
+    }
+  ],
+  "cart": [
+    {
+      "id": "2",
+      "title": "Echoes of Tomorrow",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/b/b4/Clean_%282021_film%29.jpg",
+      "category": "Sci-Fi",
+      "rating": 8.5,
+      "year": 2024
+    },
+    {
+      "id": "3",
+      "title": "Love in Paris",
+      "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
+      "category": "Romance",
+      "rating": 7.9,
+      "year": 2023
+    },
+    {
+      "id": "1",
+      "title": "Mission Impossible - The Final Reckoning",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 9,
+      "year": 2025
+    },
+    {
+      "id": "4",
+      "title": "The Last Kingdom",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Historical",
+      "rating": 8.7,
+      "year": 2022
+    }
   ],
   "favourites": [
     {
-    "id": 15,
-    "title": "The Art of War",
-    "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
-    "category": "Action",
-    "rating": 8.1,
-    "year": 2022
-  }
+      "id": "2",
+      "title": "Echoes of Tomorrow",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/b/b4/Clean_%282021_film%29.jpg",
+      "category": "Sci-Fi",
+      "rating": 8.5,
+      "year": 2024
+    },
+    {
+      "id": "3",
+      "title": "Love in Paris",
+      "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
+      "category": "Romance",
+      "rating": 7.9,
+      "year": 2023
+    },
+    {
+      "id": "4",
+      "title": "The Last Kingdom",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Historical",
+      "rating": 8.7,
+      "year": 2022
+    },
+    {
+      "id": "5",
+      "title": "Cyber Pulse",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Sci-Fi",
+      "rating": 9.1,
+      "year": 2025
+    },
+    {
+      "id": "6",
+      "title": "Jungle Quest",
+      "poster": "https://images.filmibeat.com/ph-big/2025/03/ram-charan-tejas-upcoming-movie-peddi-first-look-poster-released1743054025_0.jpg",
+      "category": "Adventure",
+      "rating": 7.5,
+      "year": 2021
+    },
+    {
+      "id": "11",
+      "title": "Beyond the Horizon",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Adventure",
+      "rating": 8.6,
+      "year": 2025
+    },
+    {
+      "id": "10",
+      "title": "Neon Dreams",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Drama",
+      "rating": 8.3,
+      "year": 2021
+    },
+    {
+      "id": "9",
+      "title": "Urban Chaos",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 7.8,
+      "year": 2022
+    },
+    {
+      "id": "8",
+      "title": "Rise of Legends",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Fantasy",
+      "rating": 8.9,
+      "year": 2024
+    },
+    {
+      "id": "7",
+      "title": "Frozen Shadows",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Mystery",
+      "rating": 8,
+      "year": 2023
+    },
+    {
+      "id": "13",
+      "title": "Quantum Rift",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Sci-Fi",
+      "rating": 9.2,
+      "year": 2025
+    },
+    {
+      "id": "14",
+      "title": "Whispers in the Dark",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Horror",
+      "rating": 7.4,
+      "year": 2023
+    },
+    {
+      "id": "15",
+      "title": "The Art of War",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Action",
+      "rating": 8.1,
+      "year": 2022
+    },
+    {
+      "id": "12",
+      "title": "The Forgotten Truth",
+      "poster": "https://media5.bollywoodhungama.in/wp-content/uploads/2025/04/Mission-Impossible-%E2%80%93-The-Final-Reckoning.jpg",
+      "category": "Mystery",
+      "rating": 7.7,
+      "year": 2020
+    }
   ]
 }

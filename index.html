@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cine Hub — Browse</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- Navbar Section Start -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h1>🎬 Cine Hub</h1>
-            </div>
-            <div class="nav-button">
-                <button class="nav-btn btn-favourite">Favourites</button>
-                <button class="nav-btn btn-cart">Cart</button>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar Section End -->
-    
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">🎬 Cine<span>Hub</span></div>
+      <div class="nav-controls">
+        <input type="text" id="search-input" placeholder="Search movies..." />
+        <button id="search-clear" title="Clear search">✖</button>
+        <select id="filter-category"></select>
+        <select id="sort-by">
+          <option value="">Sort</option>
+          <option value="rating-desc">⭐ Rating ↓</option>
+          <option value="rating-asc">⭐ Rating ↑</option>
+          <option value="year-desc">📅 Year ↓</option>
+          <option value="year-asc">📅 Year ↑</option>
+        </select>
+        <a href="favourites.html" class="nav-icon" title="Favourites">❤️</a>
+      </div>
+      
+    </div>
+  </nav>
 
-    <!-- Carousel Start -->
-    <section class="Carousel-section" id="home">
-        <div class="carousel-wrapper">
-            <button class="carousel-btn prev" onclick="changeslide(-1)">&#10094;</button>
+  <!-- Hero Carousel -->
+  <section class="carousel">
+    <button class="carousel-btn" id="prev">❮</button>
+    <div class="carousel-container" id="carousel-container"></div>
+    <button class="carousel-btn" id="next">❯</button>
+  </section>
 
-            <div class="carousel-container" id="carousel-container">
-                <!-- Slides Loaded here -->
-            </div>
+  <!-- Movie Section -->
+  <section class="container">
+    <h2 class="section-title">🎥 Explore Movies</h2>
+    <div id="movies-container" class="movie-grid"></div>
+    <div id="empty-state" class="empty-state hidden">No movies found 🎞️</div>
+  </section>
 
-            <button class="carousel-btn next" onclick="changeslide(+1)">&#10095;</button>
-        </div>
-    </section>
-    <!-- Carousel End -->
+  <footer class="footer">
+    <p>Made with ❤️ by CineHub © 2025</p>
+  </footer>
 
-    
-
-    <!-- Movies Section Start -->
-    
-    <section class="movie-section" id="movies">
-        <div class="container">
-            <h2>Popoular Movies</h2>
-            <div id="movies-container" class="movie-grid">
-                <!-- Movies Will Be Loaded Here.. -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Movies Section End -->
-
+  <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 </html>
