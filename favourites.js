@@ -1,24 +1,18 @@
-
-
-async function apiGet(endpoint) {
-  const res = await fetch(`${apiBase}${endpoint}`);
-  return res.json();
-}
-
-async function apiDelete(endpoint) {
-  await fetch(`${apiBase}${endpoint}`, { method: "DELETE" });
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("favourites-container");
   const empty = document.getElementById("empty-fav");
 
   try {
     const favs = await apiGet("/favourites");
+
     if (!favs.length) {
       empty.classList.remove("hidden");
       return;
     }
+
+    // IMPORTANT FIX: hide the empty message
+    empty.classList.add("hidden");
+
     favs.forEach((movie) => {
       const div = document.createElement("div");
       div.className = "movie-card visible";
@@ -35,8 +29,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       div.querySelector(".fav-btn").addEventListener("click", async () => {
         await apiDelete(`/favourites/${movie.id}`);
         div.remove();
-        if (!container.children.length) empty.classList.remove("hidden");
+
+        // Show empty msg if no items left
+        if (!container.children.length) {
+          empty.classList.remove("hidden");
+        }
       });
+
       container.appendChild(div);
     });
   } catch (err) {
