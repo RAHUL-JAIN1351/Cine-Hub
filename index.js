@@ -1,4 +1,4 @@
-const apiBase = "https://691616dd465a9144626ed82e.mockapi.io/api";
+const apiBase = "";
 
 async function apiGet(endpoint) {
   const res = await fetch(`${apiBase}${endpoint}`);
