@@ -755,3 +755,6 @@ html, body {
 .toast.hidden {
   display: none;
 }
+#empty-fav.hidden {
+  display: none !important;
+}
