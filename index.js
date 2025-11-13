@@ -1,4 +1,4 @@
-const apiBase = "";
+
 
 async function apiGet(endpoint) {
   const res = await fetch(`${apiBase}${endpoint}`);
