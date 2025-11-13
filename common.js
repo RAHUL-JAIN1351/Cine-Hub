@@ -1,5 +1,5 @@
 // common.js — shared helpers
-const apiBase = 'https://691616dd465a9144626ed82e.mockapi.io/api'; // updated MockAPI base
+const apiBase = "https://691616dd465a9144626ed82e.mockapi.io/api"; // updated MockAPI base
 
 /* ===============================
    API Helpers
