@@ -1,20 +1,24 @@
-// Cine Hub — Movies + Favourites
+const apiBase = "https://691616dd465a9144626ed82e.mockapi.io/api";
+
 async function apiGet(endpoint) {
-  const res = await fetch(`http://localhost:3000${endpoint}`);
+  const res = await fetch(`${apiBase}${endpoint}`);
   if (!res.ok) throw new Error(`Failed GET ${endpoint}`);
   return res.json();
 }
+
 async function apiPost(endpoint, data) {
-  const res = await fetch(`http://localhost:3000${endpoint}`, {
+  const res = await fetch(`${apiBase}${endpoint}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
   return res.json();
 }
+
 async function apiDelete(endpoint) {
-  await fetch(`http://localhost:3000${endpoint}`, { method: "DELETE" });
+  await fetch(`${apiBase}${endpoint}`, { method: "DELETE" });
 }
+
 
 function createMovieCard(movie, favIds) {
   const isFav = favIds.includes(movie.id);

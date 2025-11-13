@@ -1,10 +1,12 @@
-// Cine Hub — Favourites Page
+const apiBase = "https://691616dd465a9144626ed82e.mockapi.io/api";
+
 async function apiGet(endpoint) {
-  const res = await fetch(`http://localhost:3000${endpoint}`);
+  const res = await fetch(`${apiBase}${endpoint}`);
   return res.json();
 }
+
 async function apiDelete(endpoint) {
-  await fetch(`http://localhost:3000${endpoint}`, { method: "DELETE" });
+  await fetch(`${apiBase}${endpoint}`, { method: "DELETE" });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
